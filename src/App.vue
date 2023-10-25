@@ -38,14 +38,14 @@ const indication = (number) => {
 <style scoped>
 #container {
   width: 100%;
-  height: 100vh;
+  max-width: 200vw;
+
   background-color: blue;
 }
 
 #main {
+  padding: 50px;
   width: 100%;
-  height: 100%;
-  max-width: 200vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -98,13 +98,8 @@ const indication = (number) => {
   border-radius: 10rem 10rem 0 0;
   position: absolute;
   z-index: 60;
-  top: 426px;
-  @media (max-width: 768px) {
-    top: 257px;
-  }
-  @media (min-width: 768px) and (max-width: 1024px) {
-    top: 474px;
-  }
+  transform: translateY(13%)
+
 }
 
 #text {
@@ -119,40 +114,26 @@ const indication = (number) => {
   font-weight: bolder;
   position: absolute;
   z-index: 80;
-  left: 760px;
-  bottom: 380px;
+  transform: translate(-200px,70px);
 
-  @media (min-width: 768px) and (max-width: 1024px) {
-    left: 200px;
-    bottom: 420px;
-  }
 }
 #indicationTwo {
   font-size: 20px;
   font-weight: bolder;
   position: absolute;
   z-index: 80;
-  top: 350px;
+  transform: translate(0px,-100px);
 
-  @media (max-width: 768px) {
-    top: 220px;
-  }
 
-  @media (min-width: 768px) and (max-width: 1024px) {
-    top: 400px;
-  }
 }
 #indicationThree {
   font-size: 20px;
   font-weight: bolder;
   position: absolute;
   z-index: 80;
-  right: 710px;
-  bottom: 380px;
+  transform: translate(200px,70px);
 
-  @media (min-width: 768px) and (max-width: 1024px) {
-    right: 150px;
-    bottom: 420px;
-  }
+
+
 }
 </style>
