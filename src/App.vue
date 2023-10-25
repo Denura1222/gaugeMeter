@@ -1,36 +1,55 @@
 <script setup>
-import { ref } from 'vue'
+import { ref,computed } from 'vue'
 
-//ENTER NUMBER HERE
-const nums = ref(78)
+
+
+let increaseValue =ref(0);
+
+
+
 
 const indication = (number) => {
+
+  console.log("oudhwudn",number)
+
+
   if (number > 100 || number < 0) {
+    increaseValue.value =0;
     return 0
+    
   }
 
-  const returnedValiue = number / 100 / 2
+  const returnedValiue = increaseValue.value / 100 / 2
   return returnedValiue
 }
+
+
 </script>
 
 <template>
   <main id="container">
     <div id="main">
       <div id="mainBox" />
-      <div id="arrow" :style="{ transform: `rotate(${indication(nums.valueOf())}turn)` }">
+      <div id="arrow" :style="{ transform: `rotate(${indication(increaseValue.valueOf())}turn)` }">
         <div id="arrowHead" />
         <div id="arrowBody" />
       </div>
 
       <div id="subBox" />
       <div id="text">
-        <span id="text" v-if="nums.valueOf() > 100">0</span>
-        <span id="text" v-else>{{ nums.valueOf() }}</span>
+        <span id="text" v-if="increaseValue.valueOf() > 100">0</span>
+        <span id="text" v-else>{{ increaseValue.valueOf() }}</span>
       </div>
       <div id="indicationOne">0</div>
       <div id="indicationTwo">50.00</div>
       <div id="indicationThree">100.00</div>
+    </div>
+
+    <div>
+      <button @click="increaseValue++" id="button">
+        increase
+      </button>
+    
     </div>
   </main>
 </template>
@@ -38,10 +57,7 @@ const indication = (number) => {
 <style scoped>
 #container {
   width: 100%;
-  max-width: 200vw;
-
-  background-color: blue;
-}
+  max-width: 200vw;}
 
 #main {
   padding: 50px;
@@ -134,6 +150,26 @@ const indication = (number) => {
   transform: translate(200px,70px);
 
 
+
+}
+#button{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transform: translate(750px,0px);
+
+  
+}
+button:hover {
+  opacity: 90%;
+  transition: all;
+  cursor: pointer;
+  position: absolute;
 
 }
 </style>
